@@ -1,28 +1,23 @@
 # Agent Workspace · Interactive Preview
 
-**Current release:** `3.0.2`  
-**Live site after GitHub Pages activation:** https://leonwang4511.github.io/new-AI-news/
+**Current release: 3.0.3**  
+**GitHub Pages:** https://leonwang4511.github.io/new-AI-news/
 
-The current release is served from [index.html](./index.html).  
-The immutable snapshot is [releases/3.0.2/index.html](./releases/3.0.2/index.html).
+This repository publishes the root [index.html](./index.html) through GitHub Pages (main branch, root). Version snapshots are immutable:
 
-## GitHub Pages initial setup (one time only)
+- [3.0.3](./releases/3.0.3/index.html) — Apple-inspired tactile workspace, floating control materials, actual per-stage visual response, responsive iPad/iPhone layout
+- [3.0.2](./releases/3.0.2/index.html) — focused workflow concept
 
-In repository **Settings → Pages**:
-- Build and deployment → Source: **Deploy from a branch**
-- Branch: **main**
-- Folder: **/ (root)**
-- Save
+## Release policy
 
-Public repository / GitHub Free: no paid hosting or custom domain is required.
+Each change requires a strictly higher unique version number. Never overwrite an archived release. Once a version is complete, save its HTML to `releases/<version>/index.html`, then publish that exact same file to root `index.html`. No manual copying is required from the user after the one-time Pages setup.
 
-## Version discipline
+## Product scope
 
-Every code/design change requires a higher unique version number.
-Do not overwrite an archived release.
-For each release, save its immutable HTML at `releases/<version>/index.html` and update the root `index.html` to that exact version.
-The root file is the only live publishing entry point.
+This is an interactive local frontend prototype. Planner messages are local mock responses. It does not connect to Windows, Claude Code, Codex CLI, any actual agents, or paid APIs.
 
-## Scope
+## Design references
 
-This is an interactive local frontend prototype using browser storage. It does not connect to Windows, Claude Code, Codex CLI or real agents, and does not require credentials or model APIs.
+- [Apple HIG — Materials](https://developer.apple.com/design/human-interface-guidelines/materials)
+- [WWDC25 — Build a UIKit app with the new design](https://developer.apple.com/videos/play/wwdc2025/284/)
+- [WWDC25 — Elevate the design of your iPad app](https://developer.apple.com/videos/play/wwdc2025/208/)
