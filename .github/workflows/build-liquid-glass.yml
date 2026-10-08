@@ -1,0 +1,37 @@
+name: Build vendored liquid-glass-web
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/build-liquid-glass.yml'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build original Meapri library from source
+        run: |
+          git clone --depth 1 https://github.com/Meapri/liquid-glass-web.git /tmp/liquid-glass-web
+          cd /tmp/liquid-glass-web
+          npm ci
+          npm run build:lib
+          mkdir -p "$GITHUB_WORKSPACE/vendor/liquid-glass-web"
+          cp -R dist/. "$GITHUB_WORKSPACE/vendor/liquid-glass-web/"
+          cp LICENSE "$GITHUB_WORKSPACE/vendor/liquid-glass-web/LICENSE"
+          git rev-parse HEAD > "$GITHUB_WORKSPACE/vendor/liquid-glass-web/UPSTREAM_COMMIT"
+      - name: Commit browser build to site repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add vendor/liquid-glass-web
+          if ! git diff --cached --quiet; then
+            git commit -m "Vendor real Meapri liquid-glass-web browser engine"
+            git push
+          fi
