@@ -1,11 +1,11 @@
 # Agent Workspace · Interactive Preview
 
-**Current release: 3.0.20**  
+**Current release: 3.0.21**  
 **GitHub Pages:** https://leonwang4511.github.io/new-AI-news/
 
 This repository publishes the root [index.html](./index.html) through GitHub Pages (main branch, root). Version snapshots are immutable:
 
-- [3.0.20](./releases/3.0.20/index.html) — audited button geometry, removed rectangular blur behind toggle, fixed icons and mobile navigation, improved spacing and text contrast ([changes](./releases/3.0.20/CHANGELOG.md))
+- [3.0.20](./releases/3.0.21/index.html) — audited button geometry, removed rectangular blur behind toggle, fixed icons and mobile navigation, improved spacing and text contrast ([changes](./releases/3.0.20/CHANGELOG.md))
 
 - [3.0.3](./releases/3.0.3/index.html) — Apple-inspired tactile workspace, floating control materials, actual per-stage visual response, responsive iPad/iPhone layout
 - [3.0.2](./releases/3.0.21/index.html) — focused workflow concept
